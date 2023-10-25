@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTakingApp.DAL", "NoteTakingApp.DAL\NoteTakingApp.DAL\NoteTakingApp.DAL.csproj", "{CF9BDC25-469F-46E5-8B85-CFB596A54425}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteTakingApp.PL", "NoteTakingApp.PL\NoteTakingApp.PL.csproj", "{0B283A37-E0F2-41A5-8D72-4E54C7DA83E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTakingApp.BLL", "NoteTakingApp.BLL\NoteTakingApp.BLL\NoteTakingApp.BLL.csproj", "{FE672FE9-197D-486C-B5EF-B25BB1C3864F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteTakingApp.DAL", "NoteTakingApp.DAL\NoteTakingApp.DAL.csproj", "{759F093A-5AE7-4ADA-8F6B-8CDAD0BA55C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NoteTakingApp.PL", "NoteTakingApp.PL\NoteTakingApp.PL\NoteTakingApp.PL.csproj", "{BFDFFCCD-C2EB-472F-A204-41781C1E88CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoteTakingApp.BLL", "NoteTakingApp.BLL\NoteTakingApp.BLL.csproj", "{5BE5E30F-D6B5-43BA-931F-E9B3C857BEDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CF9BDC25-469F-46E5-8B85-CFB596A54425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CF9BDC25-469F-46E5-8B85-CFB596A54425}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CF9BDC25-469F-46E5-8B85-CFB596A54425}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CF9BDC25-469F-46E5-8B85-CFB596A54425}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE672FE9-197D-486C-B5EF-B25BB1C3864F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE672FE9-197D-486C-B5EF-B25BB1C3864F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE672FE9-197D-486C-B5EF-B25BB1C3864F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE672FE9-197D-486C-B5EF-B25BB1C3864F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BFDFFCCD-C2EB-472F-A204-41781C1E88CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFDFFCCD-C2EB-472F-A204-41781C1E88CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFDFFCCD-C2EB-472F-A204-41781C1E88CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFDFFCCD-C2EB-472F-A204-41781C1E88CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B283A37-E0F2-41A5-8D72-4E54C7DA83E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B283A37-E0F2-41A5-8D72-4E54C7DA83E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B283A37-E0F2-41A5-8D72-4E54C7DA83E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B283A37-E0F2-41A5-8D72-4E54C7DA83E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{759F093A-5AE7-4ADA-8F6B-8CDAD0BA55C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{759F093A-5AE7-4ADA-8F6B-8CDAD0BA55C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{759F093A-5AE7-4ADA-8F6B-8CDAD0BA55C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{759F093A-5AE7-4ADA-8F6B-8CDAD0BA55C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BE5E30F-D6B5-43BA-931F-E9B3C857BEDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BE5E30F-D6B5-43BA-931F-E9B3C857BEDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BE5E30F-D6B5-43BA-931F-E9B3C857BEDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BE5E30F-D6B5-43BA-931F-E9B3C857BEDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

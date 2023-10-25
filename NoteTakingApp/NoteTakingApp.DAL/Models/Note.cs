@@ -16,8 +16,7 @@ namespace NoteTakingApp.DAL.Models
 
         public DateTime LastModified { get; set; }
 
-
-        Note()
+        public Note()
         {
             Id = 0;
             Title = "Null";

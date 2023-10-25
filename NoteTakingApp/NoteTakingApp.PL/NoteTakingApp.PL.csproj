@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\NoteTakingApp.BLL\NoteTakingApp.BLL\NoteTakingApp.BLL.csproj" />
+    <ProjectReference Include="..\NoteTakingApp.BLL\NoteTakingApp.BLL.csproj" />
   </ItemGroup>
 
 </Project>
