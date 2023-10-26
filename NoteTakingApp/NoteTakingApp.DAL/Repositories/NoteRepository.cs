@@ -1,6 +1,7 @@
 ﻿using NoteTakingApp.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
@@ -60,7 +61,7 @@ namespace NoteTakingApp.DAL.Repositories
         // Get note by ID
         public Note GetNoteById(int id)
         {
-            return notesList.Find(account => account.Id == id);
+            return notesList.Find(note => note.Id == id);
         }
 
 
@@ -84,6 +85,16 @@ namespace NoteTakingApp.DAL.Repositories
                     lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString();
                 }
             }
+
+            File.WriteAllLines(filePath, lines);
+        }
+
+        //Delete
+        public void DeleteNote(int id)
+        {
+            string[] lines = File.ReadAllLines(filePath);
+
+            lines = lines.Where(line => !line.StartsWith(id + ",")).ToArray();
 
             File.WriteAllLines(filePath, lines);
         }
