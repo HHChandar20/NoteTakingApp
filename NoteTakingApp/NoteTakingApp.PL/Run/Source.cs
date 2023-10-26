@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NoteTakingApp.PL.Views;
 
 namespace NoteTakingApp.PL.Run
 {
-    internal class Source
+    internal static class Source
     {
+        static void Main()
+        {
+            ApplicationConfiguration.Initialize();
+            Application.Run(new MainMenu());
+        }
     }
 }

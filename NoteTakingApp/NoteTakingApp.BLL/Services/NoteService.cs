@@ -39,9 +39,21 @@ namespace NoteTakingApp.BLL.Services
             return repositoryInstance.GetNoteById(id);
         }
 
-        public void CreateNote(Note newNote)
+        public void CreateNote(int id, string title, string description)
         {
-            repositoryInstance.AddNote(newNote);
+            repositoryInstance.AddNote(ConvertNote(id, title, description));
+        }
+
+        public static Note ConvertNote(int id, string title, string description)
+        {
+            Note note = new Note();
+
+            note.Id = id;
+            note.Title = title;
+            note.Description = description;
+            note.LastModified = DateTime.Now;
+
+            return note;
         }
 
         public void UpdateNote(int id, string title, string description)
