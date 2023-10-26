@@ -1,6 +1,7 @@
 ﻿using NoteTakingApp.DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -41,7 +42,7 @@ namespace NoteTakingApp.DAL.Repositories
                 note.Id = int.Parse(lineArray[0]);
                 note.Title = lineArray[1].ToString();
                 note.Description = lineArray[2].ToString();
-                note.LastModified = DateTime.Parse(lineArray[3]);
+                note.LastModified = DateTime.ParseExact(lineArray[3], "d/M/yyyy h:mm tt", CultureInfo.InvariantCulture);
 
                 notes.Add(note);
             }
@@ -54,6 +55,37 @@ namespace NoteTakingApp.DAL.Repositories
         public List<Note> GetNotes()
         {
             return notesList;
+        }
+
+        // Get note by ID
+        public Note GetNoteById(int id)
+        {
+            return notesList.Find(account => account.Id == id);
+        }
+
+
+        // Create
+        public void AddNote(Note newNote)
+        {
+            notesList.Add(newNote);
+
+            File.AppendAllText(filePath, '\n' + newNote.ToString());
+        }
+
+        // Update
+        public void UpdateNote(int id, string title, string description)
+        {
+            string[] lines = File.ReadAllLines(filePath);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                if (lines[i].StartsWith(id + ","))
+                {
+                    lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString();
+                }
+            }
+
+            File.WriteAllLines(filePath, lines);
         }
     }
 }
