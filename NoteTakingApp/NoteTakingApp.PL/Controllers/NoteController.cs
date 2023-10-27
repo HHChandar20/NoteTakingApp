@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NoteTakingApp.PL.NoteController
+namespace NoteTakingApp.PL.Controllers
 {
     public class NoteController
     {
@@ -43,6 +43,11 @@ namespace NoteTakingApp.PL.NoteController
         public void DeleteNote(int id)
         {
             serviceInstance.DeleteNote(id);
+        }
+
+        public string[] ReadFromCsvFile()
+        {
+            return serviceInstance.ReadCsvFile();
         }
     }
 }

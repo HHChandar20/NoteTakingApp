@@ -65,5 +65,10 @@ namespace NoteTakingApp.BLL.Services
         {
             repositoryInstance.DeleteNote(id);
         }
+
+        public string[] ReadCsvFile()
+        {
+            return repositoryInstance.ReadCsvFile();
+        }
     }
 }

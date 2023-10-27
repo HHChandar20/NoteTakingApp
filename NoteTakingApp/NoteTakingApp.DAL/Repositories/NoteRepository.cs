@@ -98,5 +98,11 @@ namespace NoteTakingApp.DAL.Repositories
 
             File.WriteAllLines(filePath, lines);
         }
+        public string[] ReadCsvFile()
+        {
+            string[] lines = File.ReadAllLines(filePath);
+
+            return lines;
+        }
     }
 }
