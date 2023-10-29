@@ -135,13 +135,12 @@ namespace NoteTakingApp.PL.Views
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        //Exit button
-        private void iconButton1_Click(object sender, EventArgs e)
+        private void exitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void iconButton2_Click(object sender, EventArgs e)
+        private void resizeButton_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
             {
@@ -153,7 +152,7 @@ namespace NoteTakingApp.PL.Views
             }
         }
 
-        private void iconButton3_Click(object sender, EventArgs e)
+        private void minimizeButton_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }

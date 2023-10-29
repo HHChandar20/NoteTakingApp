@@ -36,15 +36,15 @@
             myNotesButton = new FontAwesome.Sharp.IconButton();
             panelLogo = new Panel();
             logo = new PictureBox();
-            iconButton1 = new FontAwesome.Sharp.IconButton();
             panelTitleBar = new Panel();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
+            resizeButton = new FontAwesome.Sharp.IconButton();
+            exitButton = new FontAwesome.Sharp.IconButton();
             navbarLabel = new Label();
             navbarIcon = new FontAwesome.Sharp.IconPictureBox();
             panelNavbarShadow = new Panel();
             panelCurrentMenu = new Panel();
             panelMenuShadow = new Panel();
-            iconButton3 = new FontAwesome.Sharp.IconButton();
+            minimizeButton = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -175,29 +175,12 @@
             logo.TabStop = false;
             logo.Click += logo_Click;
             // 
-            // iconButton1
-            // 
-            iconButton1.BackColor = Color.DarkRed;
-            iconButton1.FlatStyle = FlatStyle.Popup;
-            iconButton1.Font = new Font("Segoe UI", 5F, FontStyle.Regular, GraphicsUnit.Point);
-            iconButton1.IconChar = FontAwesome.Sharp.IconChar.X;
-            iconButton1.IconColor = Color.White;
-            iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton1.IconSize = 20;
-            iconButton1.Location = new Point(610, 20);
-            iconButton1.Name = "iconButton1";
-            iconButton1.Size = new Size(39, 34);
-            iconButton1.TabIndex = 5;
-            iconButton1.Text = " ";
-            iconButton1.UseVisualStyleBackColor = false;
-            iconButton1.Click += iconButton1_Click;
-            // 
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(21, 21, 21);
-            panelTitleBar.Controls.Add(iconButton3);
-            panelTitleBar.Controls.Add(iconButton2);
-            panelTitleBar.Controls.Add(iconButton1);
+            panelTitleBar.Controls.Add(minimizeButton);
+            panelTitleBar.Controls.Add(resizeButton);
+            panelTitleBar.Controls.Add(exitButton);
             panelTitleBar.Controls.Add(navbarLabel);
             panelTitleBar.Controls.Add(navbarIcon);
             panelTitleBar.Dock = DockStyle.Top;
@@ -207,18 +190,33 @@
             panelTitleBar.TabIndex = 2;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
-            // iconButton2
+            // resizeButton
             // 
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Square;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 20;
-            iconButton2.Location = new Point(566, 20);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(38, 34);
-            iconButton2.TabIndex = 6;
-            iconButton2.UseVisualStyleBackColor = true;
-            iconButton2.Click += iconButton2_Click;
+            resizeButton.IconChar = FontAwesome.Sharp.IconChar.Square;
+            resizeButton.IconColor = Color.Black;
+            resizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            resizeButton.IconSize = 20;
+            resizeButton.Location = new Point(574, 21);
+            resizeButton.Name = "resizeButton";
+            resizeButton.Size = new Size(34, 32);
+            resizeButton.TabIndex = 3;
+            resizeButton.UseVisualStyleBackColor = true;
+            resizeButton.Click += resizeButton_Click;
+            // 
+            // exitButton
+            // 
+            exitButton.BackColor = Color.Firebrick;
+            exitButton.FlatStyle = FlatStyle.Popup;
+            exitButton.IconChar = FontAwesome.Sharp.IconChar.X;
+            exitButton.IconColor = Color.Black;
+            exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            exitButton.IconSize = 20;
+            exitButton.Location = new Point(614, 21);
+            exitButton.Name = "exitButton";
+            exitButton.Size = new Size(35, 32);
+            exitButton.TabIndex = 2;
+            exitButton.UseVisualStyleBackColor = false;
+            exitButton.Click += exitButton_Click;
             // 
             // navbarLabel
             // 
@@ -270,18 +268,20 @@
             panelMenuShadow.Size = new Size(6, 406);
             panelMenuShadow.TabIndex = 5;
             // 
-            // iconButton3
+            // minimizeButton
             // 
-            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            iconButton3.IconColor = Color.Black;
-            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton3.IconSize = 20;
-            iconButton3.Location = new Point(524, 21);
-            iconButton3.Name = "iconButton3";
-            iconButton3.Size = new Size(36, 33);
-            iconButton3.TabIndex = 7;
-            iconButton3.UseVisualStyleBackColor = true;
-            iconButton3.Click += iconButton3_Click;
+            minimizeButton.BackColor = Color.White;
+            minimizeButton.FlatStyle = FlatStyle.Popup;
+            minimizeButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            minimizeButton.IconColor = Color.Black;
+            minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            minimizeButton.IconSize = 20;
+            minimizeButton.Location = new Point(534, 21);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(34, 32);
+            minimizeButton.TabIndex = 4;
+            minimizeButton.UseVisualStyleBackColor = false;
+            minimizeButton.Click += minimizeButton_Click;
             // 
             // MainMenu
             // 
@@ -319,8 +319,8 @@
         private Panel panelCurrentMenu;
         private Panel panelMenuShadow;
         private FontAwesome.Sharp.IconButton deleteNoteButton;
-        private FontAwesome.Sharp.IconButton iconButton1;
-        private FontAwesome.Sharp.IconButton iconButton2;
-        private FontAwesome.Sharp.IconButton iconButton3;
+        private FontAwesome.Sharp.IconButton exitButton;
+        private FontAwesome.Sharp.IconButton resizeButton;
+        private FontAwesome.Sharp.IconButton minimizeButton;
     }
 }
