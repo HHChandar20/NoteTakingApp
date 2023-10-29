@@ -44,5 +44,14 @@ namespace NoteTakingApp.PL.Views
 
             }
         }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count == 1)
+            {
+                controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
+                notesList.SelectedItems[0].Remove();
+            }
+        }
     }
 }

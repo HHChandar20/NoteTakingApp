@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
-            deleteNoteButton = new FontAwesome.Sharp.IconButton();
             addNoteButton = new FontAwesome.Sharp.IconButton();
             favouritesButton = new FontAwesome.Sharp.IconButton();
             myNotesButton = new FontAwesome.Sharp.IconButton();
@@ -42,6 +41,7 @@
             panelNavbarShadow = new Panel();
             panelCurrentMenu = new Panel();
             panelMenuShadow = new Panel();
+            deleteNoteButton = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -63,29 +63,6 @@
             panelMenu.Name = "panelMenu";
             panelMenu.Size = new Size(314, 804);
             panelMenu.TabIndex = 1;
-            // 
-            // deleteNoteButton
-            // 
-            deleteNoteButton.Dock = DockStyle.Top;
-            deleteNoteButton.FlatAppearance.BorderSize = 0;
-            deleteNoteButton.FlatStyle = FlatStyle.Flat;
-            deleteNoteButton.ForeColor = Color.FromArgb(248, 161, 69);
-            deleteNoteButton.IconChar = FontAwesome.Sharp.IconChar.Trash;
-            deleteNoteButton.IconColor = Color.FromArgb(248, 161, 69);
-            deleteNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            deleteNoteButton.IconSize = 32;
-            deleteNoteButton.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteNoteButton.Location = new Point(0, 533);
-            deleteNoteButton.Margin = new Padding(4, 5, 4, 5);
-            deleteNoteButton.Name = "deleteNoteButton";
-            deleteNoteButton.Padding = new Padding(14, 0, 29, 0);
-            deleteNoteButton.Size = new Size(314, 100);
-            deleteNoteButton.TabIndex = 4;
-            deleteNoteButton.Text = "Delete Note";
-            deleteNoteButton.TextAlign = ContentAlignment.MiddleLeft;
-            deleteNoteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            deleteNoteButton.UseVisualStyleBackColor = true;
-            deleteNoteButton.Click += deleteNoteButton_Click;
             // 
             // addNoteButton
             // 
@@ -248,6 +225,29 @@
             panelMenuShadow.Size = new Size(9, 677);
             panelMenuShadow.TabIndex = 5;
             // 
+            // deleteNoteButton
+            // 
+            deleteNoteButton.Dock = DockStyle.Top;
+            deleteNoteButton.FlatAppearance.BorderSize = 0;
+            deleteNoteButton.FlatStyle = FlatStyle.Flat;
+            deleteNoteButton.ForeColor = Color.FromArgb(248, 161, 69);
+            deleteNoteButton.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            deleteNoteButton.IconColor = Color.FromArgb(248, 161, 69);
+            deleteNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            deleteNoteButton.IconSize = 32;
+            deleteNoteButton.ImageAlign = ContentAlignment.MiddleLeft;
+            deleteNoteButton.Location = new Point(0, 533);
+            deleteNoteButton.Margin = new Padding(4, 5, 4, 5);
+            deleteNoteButton.Name = "deleteNoteButton";
+            deleteNoteButton.Padding = new Padding(14, 0, 29, 0);
+            deleteNoteButton.Size = new Size(314, 100);
+            deleteNoteButton.TabIndex = 4;
+            deleteNoteButton.Text = "Deleted Notes";
+            deleteNoteButton.TextAlign = ContentAlignment.MiddleLeft;
+            deleteNoteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
+            deleteNoteButton.UseVisualStyleBackColor = true;
+            deleteNoteButton.Click += deleteNoteButton_Click;
+            // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -273,7 +273,6 @@
         #endregion
 
         private Panel panelMenu;
-        private FontAwesome.Sharp.IconButton deleteNoteButton;
         private FontAwesome.Sharp.IconButton addNoteButton;
         private FontAwesome.Sharp.IconButton favouritesButton;
         private FontAwesome.Sharp.IconButton myNotesButton;
@@ -285,5 +284,6 @@
         private Panel panelNavbarShadow;
         private Panel panelCurrentMenu;
         private Panel panelMenuShadow;
+        private FontAwesome.Sharp.IconButton deleteNoteButton;
     }
 }
