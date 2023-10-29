@@ -38,12 +38,13 @@
             logo = new PictureBox();
             iconButton1 = new FontAwesome.Sharp.IconButton();
             panelTitleBar = new Panel();
+            iconButton2 = new FontAwesome.Sharp.IconButton();
             navbarLabel = new Label();
             navbarIcon = new FontAwesome.Sharp.IconPictureBox();
             panelNavbarShadow = new Panel();
             panelCurrentMenu = new Panel();
             panelMenuShadow = new Panel();
-            iconButton2 = new FontAwesome.Sharp.IconButton();
+            iconButton3 = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -194,6 +195,7 @@
             // panelTitleBar
             // 
             panelTitleBar.BackColor = Color.FromArgb(21, 21, 21);
+            panelTitleBar.Controls.Add(iconButton3);
             panelTitleBar.Controls.Add(iconButton2);
             panelTitleBar.Controls.Add(iconButton1);
             panelTitleBar.Controls.Add(navbarLabel);
@@ -204,6 +206,19 @@
             panelTitleBar.Size = new Size(661, 70);
             panelTitleBar.TabIndex = 2;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
+            // 
+            // iconButton2
+            // 
+            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Square;
+            iconButton2.IconColor = Color.Black;
+            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton2.IconSize = 20;
+            iconButton2.Location = new Point(566, 20);
+            iconButton2.Name = "iconButton2";
+            iconButton2.Size = new Size(38, 34);
+            iconButton2.TabIndex = 6;
+            iconButton2.UseVisualStyleBackColor = true;
+            iconButton2.Click += iconButton2_Click;
             // 
             // navbarLabel
             // 
@@ -255,18 +270,18 @@
             panelMenuShadow.Size = new Size(6, 406);
             panelMenuShadow.TabIndex = 5;
             // 
-            // iconButton2
+            // iconButton3
             // 
-            iconButton2.IconChar = FontAwesome.Sharp.IconChar.Square;
-            iconButton2.IconColor = Color.Black;
-            iconButton2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            iconButton2.IconSize = 20;
-            iconButton2.Location = new Point(566, 20);
-            iconButton2.Name = "iconButton2";
-            iconButton2.Size = new Size(38, 34);
-            iconButton2.TabIndex = 6;
-            iconButton2.UseVisualStyleBackColor = true;
-            iconButton2.Click += iconButton2_Click;
+            iconButton3.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            iconButton3.IconColor = Color.Black;
+            iconButton3.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButton3.IconSize = 20;
+            iconButton3.Location = new Point(524, 21);
+            iconButton3.Name = "iconButton3";
+            iconButton3.Size = new Size(36, 33);
+            iconButton3.TabIndex = 7;
+            iconButton3.UseVisualStyleBackColor = true;
+            iconButton3.Click += iconButton3_Click;
             // 
             // MainMenu
             // 
@@ -306,5 +321,6 @@
         private FontAwesome.Sharp.IconButton deleteNoteButton;
         private FontAwesome.Sharp.IconButton iconButton1;
         private FontAwesome.Sharp.IconButton iconButton2;
+        private FontAwesome.Sharp.IconButton iconButton3;
     }
 }

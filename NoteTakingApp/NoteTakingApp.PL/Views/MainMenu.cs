@@ -152,5 +152,10 @@ namespace NoteTakingApp.PL.Views
                 this.WindowState = FormWindowState.Normal;
             }
         }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
