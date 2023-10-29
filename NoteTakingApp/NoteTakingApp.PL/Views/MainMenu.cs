@@ -134,5 +134,11 @@ namespace NoteTakingApp.PL.Views
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        //Exit button
+        private void iconButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
