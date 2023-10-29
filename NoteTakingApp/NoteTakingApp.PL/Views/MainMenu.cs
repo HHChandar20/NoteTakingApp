@@ -1,5 +1,4 @@
-﻿using NoteTakingApp.PL.Forms;
-using FontAwesome.Sharp;
+﻿using FontAwesome.Sharp;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -31,6 +30,7 @@ namespace NoteTakingApp.PL.Views
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+            this.WindowState = FormWindowState.Maximized;
         }
 
         //Methods
@@ -75,7 +75,7 @@ namespace NoteTakingApp.PL.Views
 
         private void OpenForm(Form newForm)
         {
-            if (currentForm != null) 
+            if (currentForm != null)
             {
                 currentForm.Close();
             }
@@ -104,14 +104,10 @@ namespace NoteTakingApp.PL.Views
         private void addNoteButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            OpenForm(new AddNote());
         }
 
         private void deleteNoteButton_Click(object sender, EventArgs e)
-        {
-            ActivateButton(sender);
-        }
-
-        private void updateNoteButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
         }

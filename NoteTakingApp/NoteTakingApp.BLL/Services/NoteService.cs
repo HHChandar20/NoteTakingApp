@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Principal;
+using System.Globalization;
 
 namespace NoteTakingApp.BLL.Services
 {
@@ -39,26 +40,26 @@ namespace NoteTakingApp.BLL.Services
             return repositoryInstance.GetNoteById(id);
         }
 
-        public void CreateNote(int id, string title, string description)
+        public void CreateNote(int id, string title, string description, string favourite)
         {
-            repositoryInstance.AddNote(ConvertNote(id, title, description));
+            repositoryInstance.AddNote(ConvertNote(id, title, description, favourite));
         }
 
-        public static Note ConvertNote(int id, string title, string description)
+        public static Note ConvertNote(int id, string title, string description, string favourite)
         {
             Note note = new Note();
 
             note.Id = id;
             note.Title = title;
             note.Description = description;
-            note.LastModified = DateTime.Now;
-
+            note.LastModified = DateTime.Now.ToString("d/M/yyyy h:mm tt");
+            note.Favourite = favourite;
             return note;
         }
 
-        public void UpdateNote(int id, string title, string description)
+        public void UpdateNote(int id, string title, string description, string favourite)
         {
-            repositoryInstance.UpdateNote(id, title, description);
+            repositoryInstance.UpdateNote(id, title, description, favourite);
         }
 
         public void DeleteNote(int id)

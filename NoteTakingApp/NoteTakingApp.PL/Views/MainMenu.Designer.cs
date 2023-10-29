@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             panelMenu = new Panel();
-            updateNoteButton = new FontAwesome.Sharp.IconButton();
             deleteNoteButton = new FontAwesome.Sharp.IconButton();
             addNoteButton = new FontAwesome.Sharp.IconButton();
             favouritesButton = new FontAwesome.Sharp.IconButton();
@@ -53,7 +52,6 @@
             // panelMenu
             // 
             panelMenu.BackColor = Color.FromArgb(21, 21, 21);
-            panelMenu.Controls.Add(updateNoteButton);
             panelMenu.Controls.Add(deleteNoteButton);
             panelMenu.Controls.Add(addNoteButton);
             panelMenu.Controls.Add(favouritesButton);
@@ -61,31 +59,10 @@
             panelMenu.Controls.Add(panelLogo);
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
+            panelMenu.Margin = new Padding(4, 5, 4, 5);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 450);
+            panelMenu.Size = new Size(314, 804);
             panelMenu.TabIndex = 1;
-            // 
-            // updateNoteButton
-            // 
-            updateNoteButton.Dock = DockStyle.Top;
-            updateNoteButton.FlatAppearance.BorderSize = 0;
-            updateNoteButton.FlatStyle = FlatStyle.Flat;
-            updateNoteButton.ForeColor = Color.FromArgb(248, 161, 69);
-            updateNoteButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
-            updateNoteButton.IconColor = Color.FromArgb(248, 161, 69);
-            updateNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            updateNoteButton.IconSize = 32;
-            updateNoteButton.ImageAlign = ContentAlignment.MiddleLeft;
-            updateNoteButton.Location = new Point(0, 380);
-            updateNoteButton.Name = "updateNoteButton";
-            updateNoteButton.Padding = new Padding(10, 0, 20, 0);
-            updateNoteButton.Size = new Size(220, 60);
-            updateNoteButton.TabIndex = 5;
-            updateNoteButton.Text = "Update Note";
-            updateNoteButton.TextAlign = ContentAlignment.MiddleLeft;
-            updateNoteButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            updateNoteButton.UseVisualStyleBackColor = true;
-            updateNoteButton.Click += updateNoteButton_Click;
             // 
             // deleteNoteButton
             // 
@@ -98,10 +75,11 @@
             deleteNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             deleteNoteButton.IconSize = 32;
             deleteNoteButton.ImageAlign = ContentAlignment.MiddleLeft;
-            deleteNoteButton.Location = new Point(0, 320);
+            deleteNoteButton.Location = new Point(0, 533);
+            deleteNoteButton.Margin = new Padding(4, 5, 4, 5);
             deleteNoteButton.Name = "deleteNoteButton";
-            deleteNoteButton.Padding = new Padding(10, 0, 20, 0);
-            deleteNoteButton.Size = new Size(220, 60);
+            deleteNoteButton.Padding = new Padding(14, 0, 29, 0);
+            deleteNoteButton.Size = new Size(314, 100);
             deleteNoteButton.TabIndex = 4;
             deleteNoteButton.Text = "Delete Note";
             deleteNoteButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -120,10 +98,11 @@
             addNoteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             addNoteButton.IconSize = 32;
             addNoteButton.ImageAlign = ContentAlignment.MiddleLeft;
-            addNoteButton.Location = new Point(0, 260);
+            addNoteButton.Location = new Point(0, 433);
+            addNoteButton.Margin = new Padding(4, 5, 4, 5);
             addNoteButton.Name = "addNoteButton";
-            addNoteButton.Padding = new Padding(10, 0, 20, 0);
-            addNoteButton.Size = new Size(220, 60);
+            addNoteButton.Padding = new Padding(14, 0, 29, 0);
+            addNoteButton.Size = new Size(314, 100);
             addNoteButton.TabIndex = 3;
             addNoteButton.Text = "Add Note";
             addNoteButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -142,10 +121,11 @@
             favouritesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             favouritesButton.IconSize = 32;
             favouritesButton.ImageAlign = ContentAlignment.MiddleLeft;
-            favouritesButton.Location = new Point(0, 200);
+            favouritesButton.Location = new Point(0, 333);
+            favouritesButton.Margin = new Padding(4, 5, 4, 5);
             favouritesButton.Name = "favouritesButton";
-            favouritesButton.Padding = new Padding(10, 0, 20, 0);
-            favouritesButton.Size = new Size(220, 60);
+            favouritesButton.Padding = new Padding(14, 0, 29, 0);
+            favouritesButton.Size = new Size(314, 100);
             favouritesButton.TabIndex = 2;
             favouritesButton.Text = "Favourites";
             favouritesButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -164,10 +144,11 @@
             myNotesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             myNotesButton.IconSize = 32;
             myNotesButton.ImageAlign = ContentAlignment.MiddleLeft;
-            myNotesButton.Location = new Point(0, 140);
+            myNotesButton.Location = new Point(0, 233);
+            myNotesButton.Margin = new Padding(4, 5, 4, 5);
             myNotesButton.Name = "myNotesButton";
-            myNotesButton.Padding = new Padding(10, 0, 20, 0);
-            myNotesButton.Size = new Size(220, 60);
+            myNotesButton.Padding = new Padding(14, 0, 29, 0);
+            myNotesButton.Size = new Size(314, 100);
             myNotesButton.TabIndex = 1;
             myNotesButton.Text = "My Notes";
             myNotesButton.TextAlign = ContentAlignment.MiddleLeft;
@@ -180,17 +161,19 @@
             panelLogo.Controls.Add(logo);
             panelLogo.Dock = DockStyle.Top;
             panelLogo.Location = new Point(0, 0);
+            panelLogo.Margin = new Padding(4, 5, 4, 5);
             panelLogo.Name = "panelLogo";
-            panelLogo.Size = new Size(220, 140);
+            panelLogo.Size = new Size(314, 233);
             panelLogo.TabIndex = 0;
             // 
             // logo
             // 
             logo.Cursor = Cursors.Hand;
             logo.Image = (Image)resources.GetObject("logo.Image");
-            logo.Location = new Point(58, 21);
+            logo.Location = new Point(83, 35);
+            logo.Margin = new Padding(4, 5, 4, 5);
             logo.Name = "logo";
-            logo.Size = new Size(100, 100);
+            logo.Size = new Size(143, 167);
             logo.SizeMode = PictureBoxSizeMode.Zoom;
             logo.TabIndex = 0;
             logo.TabStop = false;
@@ -202,9 +185,10 @@
             panelTitleBar.Controls.Add(navbarLabel);
             panelTitleBar.Controls.Add(navbarIcon);
             panelTitleBar.Dock = DockStyle.Top;
-            panelTitleBar.Location = new Point(220, 0);
+            panelTitleBar.Location = new Point(314, 0);
+            panelTitleBar.Margin = new Padding(4, 5, 4, 5);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(580, 70);
+            panelTitleBar.Size = new Size(944, 117);
             panelTitleBar.TabIndex = 2;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
@@ -212,9 +196,10 @@
             // 
             navbarLabel.AutoSize = true;
             navbarLabel.ForeColor = Color.FromArgb(248, 161, 69);
-            navbarLabel.Location = new Point(50, 29);
+            navbarLabel.Location = new Point(71, 48);
+            navbarLabel.Margin = new Padding(4, 0, 4, 0);
             navbarLabel.Name = "navbarLabel";
-            navbarLabel.Size = new Size(40, 15);
+            navbarLabel.Size = new Size(61, 25);
             navbarLabel.TabIndex = 1;
             navbarLabel.Text = "Home";
             // 
@@ -225,9 +210,11 @@
             navbarIcon.IconChar = FontAwesome.Sharp.IconChar.HomeLg;
             navbarIcon.IconColor = Color.FromArgb(248, 161, 69);
             navbarIcon.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            navbarIcon.Location = new Point(13, 20);
+            navbarIcon.IconSize = 46;
+            navbarIcon.Location = new Point(19, 33);
+            navbarIcon.Margin = new Padding(4, 5, 4, 5);
             navbarIcon.Name = "navbarIcon";
-            navbarIcon.Size = new Size(32, 32);
+            navbarIcon.Size = new Size(46, 53);
             navbarIcon.TabIndex = 0;
             navbarIcon.TabStop = false;
             // 
@@ -235,39 +222,43 @@
             // 
             panelNavbarShadow.BackColor = Color.FromArgb(70, 70, 70);
             panelNavbarShadow.Dock = DockStyle.Top;
-            panelNavbarShadow.Location = new Point(220, 70);
+            panelNavbarShadow.Location = new Point(314, 117);
+            panelNavbarShadow.Margin = new Padding(4, 5, 4, 5);
             panelNavbarShadow.Name = "panelNavbarShadow";
-            panelNavbarShadow.Size = new Size(580, 6);
+            panelNavbarShadow.Size = new Size(944, 10);
             panelNavbarShadow.TabIndex = 3;
             // 
             // panelCurrentMenu
             // 
             panelCurrentMenu.BackColor = Color.FromArgb(190, 190, 190);
             panelCurrentMenu.Dock = DockStyle.Fill;
-            panelCurrentMenu.Location = new Point(220, 76);
+            panelCurrentMenu.Location = new Point(314, 127);
+            panelCurrentMenu.Margin = new Padding(4, 5, 4, 5);
             panelCurrentMenu.Name = "panelCurrentMenu";
-            panelCurrentMenu.Size = new Size(580, 374);
+            panelCurrentMenu.Size = new Size(944, 677);
             panelCurrentMenu.TabIndex = 4;
             // 
             // panelMenuShadow
             // 
             panelMenuShadow.BackColor = Color.FromArgb(70, 70, 70);
             panelMenuShadow.Dock = DockStyle.Left;
-            panelMenuShadow.Location = new Point(220, 76);
+            panelMenuShadow.Location = new Point(314, 127);
+            panelMenuShadow.Margin = new Padding(4, 5, 4, 5);
             panelMenuShadow.Name = "panelMenuShadow";
-            panelMenuShadow.Size = new Size(6, 374);
+            panelMenuShadow.Size = new Size(9, 677);
             panelMenuShadow.TabIndex = 5;
             // 
             // MainMenu
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1258, 804);
             Controls.Add(panelMenuShadow);
             Controls.Add(panelCurrentMenu);
             Controls.Add(panelNavbarShadow);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
+            Margin = new Padding(4, 5, 4, 5);
             Name = "MainMenu";
             Text = "Note Taking App";
             panelMenu.ResumeLayout(false);
@@ -282,7 +273,6 @@
         #endregion
 
         private Panel panelMenu;
-        private FontAwesome.Sharp.IconButton updateNoteButton;
         private FontAwesome.Sharp.IconButton deleteNoteButton;
         private FontAwesome.Sharp.IconButton addNoteButton;
         private FontAwesome.Sharp.IconButton favouritesButton;

@@ -41,9 +41,10 @@ namespace NoteTakingApp.DAL.Repositories
                 string[] lineArray = line.Split(",");
 
                 note.Id = int.Parse(lineArray[0]);
-                note.Title = lineArray[1].ToString();
-                note.Description = lineArray[2].ToString();
-                note.LastModified = DateTime.ParseExact(lineArray[3], "d/M/yyyy h:mm tt", CultureInfo.InvariantCulture);
+                note.Title = lineArray[1];
+                note.Description = lineArray[2];
+                note.LastModified = lineArray[3];
+                note.Favourite = lineArray[4];
 
                 notes.Add(note);
             }
@@ -70,11 +71,11 @@ namespace NoteTakingApp.DAL.Repositories
         {
             notesList.Add(newNote);
 
-            File.AppendAllText(filePath, '\n' + newNote.ToString());
+            File.AppendAllText(filePath, '\n' + $"{newNote.Id},{newNote.Title},{newNote.Description},{newNote.LastModified},{newNote.Favourite}");
         }
 
         // Update
-        public void UpdateNote(int id, string title, string description)
+        public void UpdateNote(int id, string title, string description, string favourite)
         {
             string[] lines = File.ReadAllLines(filePath);
 
@@ -82,7 +83,7 @@ namespace NoteTakingApp.DAL.Repositories
             {
                 if (lines[i].StartsWith(id + ","))
                 {
-                    lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString();
+                    lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString() + ',' + favourite;
                 }
             }
 
@@ -98,6 +99,8 @@ namespace NoteTakingApp.DAL.Repositories
 
             File.WriteAllLines(filePath, lines);
         }
+
+
         public string[] ReadCsvFile()
         {
             string[] lines = File.ReadAllLines(filePath);

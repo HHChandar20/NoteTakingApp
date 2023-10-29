@@ -28,15 +28,15 @@ namespace NoteTakingApp.PL.Controllers
         }
 
         //Create
-        public void CreateNewNote(int id, string title, string description)
+        public void CreateNewNote(int id, string title, string description, string favourite)
         {
-            serviceInstance.CreateNote(id, title, description);
+            serviceInstance.CreateNote(id, title, description, favourite);
         }
 
         //Update
-        public void UpdateNote(int id, string title, string description)
+        public void UpdateNote(int id, string title, string description, string favourite)
         {
-            serviceInstance.UpdateNote(id, title, description);
+            serviceInstance.UpdateNote(id, title, description, favourite);
         }
 
         //Delete
