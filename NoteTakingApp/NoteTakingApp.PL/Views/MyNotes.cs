@@ -69,10 +69,5 @@ namespace NoteTakingApp.PL.Views
             }
 
         }
-
-        private void notesList_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

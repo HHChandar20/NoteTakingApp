@@ -37,6 +37,7 @@ namespace NoteTakingApp.DAL.Repositories
                 Note note = new Note();
 
                 string line = reader.ReadLine();
+                if (line == "") continue;
 
                 string[] lineArray = line.Split(",");
 

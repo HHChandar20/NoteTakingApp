@@ -113,6 +113,7 @@ namespace NoteTakingApp.PL.Views
         private void favouritesButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            OpenForm(new Favourites());
         }
 
         private void addNoteButton_Click(object sender, EventArgs e)

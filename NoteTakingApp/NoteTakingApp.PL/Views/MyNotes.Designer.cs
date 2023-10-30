@@ -54,14 +54,14 @@
             listViewGroup1.Name = "group";
             notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup1 });
             notesList.Location = new Point(0, 0);
+            notesList.Margin = new Padding(4, 5, 4, 5);
             notesList.MultiSelect = false;
             notesList.Name = "notesList";
             notesList.ShowGroups = false;
-            notesList.Size = new Size(1157, 484);
+            notesList.Size = new Size(1653, 807);
             notesList.TabIndex = 1;
             notesList.UseCompatibleStateImageBehavior = false;
             notesList.View = View.Details;
-            notesList.SelectedIndexChanged += notesList_SelectedIndexChanged;
             // 
             // Padding
             // 
@@ -103,23 +103,21 @@
             panelOptions.Controls.Add(deleteButton);
             panelOptions.Controls.Add(updateButton);
             panelOptions.Dock = DockStyle.Bottom;
-            panelOptions.Location = new Point(0, 424);
-            panelOptions.Margin = new Padding(2);
+            panelOptions.Location = new Point(0, 707);
             panelOptions.Name = "panelOptions";
-            panelOptions.Size = new Size(1157, 60);
+            panelOptions.Size = new Size(1653, 100);
             panelOptions.TabIndex = 2;
             // 
             // deleteButton
             // 
-            deleteButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            deleteButton.Dock = DockStyle.Right;
             deleteButton.IconChar = FontAwesome.Sharp.IconChar.Trash;
             deleteButton.IconColor = Color.Black;
             deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             deleteButton.IconSize = 32;
-            deleteButton.Location = new Point(969, 0);
-            deleteButton.Margin = new Padding(2);
+            deleteButton.Location = new Point(1533, 0);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(84, 60);
+            deleteButton.Size = new Size(120, 100);
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
@@ -127,16 +125,15 @@
             // 
             // updateButton
             // 
-            updateButton.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            updateButton.Dock = DockStyle.Left;
             updateButton.ForeColor = Color.Coral;
             updateButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
             updateButton.IconColor = Color.Black;
             updateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             updateButton.IconSize = 32;
-            updateButton.Location = new Point(110, 0);
-            updateButton.Margin = new Padding(2);
+            updateButton.Location = new Point(0, 0);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(84, 60);
+            updateButton.Size = new Size(120, 100);
             updateButton.TabIndex = 0;
             updateButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             updateButton.UseVisualStyleBackColor = true;
@@ -144,12 +141,11 @@
             // 
             // MyNotes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1157, 484);
+            ClientSize = new Size(1653, 807);
             Controls.Add(panelOptions);
             Controls.Add(notesList);
-            Margin = new Padding(2);
             Name = "MyNotes";
             Text = "Form1";
             panelOptions.ResumeLayout(false);
