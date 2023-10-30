@@ -37,6 +37,7 @@
             panelLogo = new Panel();
             logo = new PictureBox();
             panelTitleBar = new Panel();
+            minimizeButton = new FontAwesome.Sharp.IconButton();
             resizeButton = new FontAwesome.Sharp.IconButton();
             exitButton = new FontAwesome.Sharp.IconButton();
             navbarLabel = new Label();
@@ -44,7 +45,6 @@
             panelNavbarShadow = new Panel();
             panelCurrentMenu = new Panel();
             panelMenuShadow = new Panel();
-            minimizeButton = new FontAwesome.Sharp.IconButton();
             panelMenu.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
@@ -190,8 +190,25 @@
             panelTitleBar.TabIndex = 2;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
+            // minimizeButton
+            // 
+            minimizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            minimizeButton.BackColor = Color.White;
+            minimizeButton.FlatStyle = FlatStyle.Popup;
+            minimizeButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
+            minimizeButton.IconColor = Color.Black;
+            minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            minimizeButton.IconSize = 20;
+            minimizeButton.Location = new Point(534, 21);
+            minimizeButton.Name = "minimizeButton";
+            minimizeButton.Size = new Size(34, 32);
+            minimizeButton.TabIndex = 4;
+            minimizeButton.UseVisualStyleBackColor = false;
+            minimizeButton.Click += minimizeButton_Click;
+            // 
             // resizeButton
             // 
+            resizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             resizeButton.IconChar = FontAwesome.Sharp.IconChar.Square;
             resizeButton.IconColor = Color.Black;
             resizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -205,6 +222,7 @@
             // 
             // exitButton
             // 
+            exitButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             exitButton.BackColor = Color.Firebrick;
             exitButton.FlatStyle = FlatStyle.Popup;
             exitButton.IconChar = FontAwesome.Sharp.IconChar.X;
@@ -267,21 +285,6 @@
             panelMenuShadow.Name = "panelMenuShadow";
             panelMenuShadow.Size = new Size(6, 406);
             panelMenuShadow.TabIndex = 5;
-            // 
-            // minimizeButton
-            // 
-            minimizeButton.BackColor = Color.White;
-            minimizeButton.FlatStyle = FlatStyle.Popup;
-            minimizeButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
-            minimizeButton.IconColor = Color.Black;
-            minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            minimizeButton.IconSize = 20;
-            minimizeButton.Location = new Point(534, 21);
-            minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(34, 32);
-            minimizeButton.TabIndex = 4;
-            minimizeButton.UseVisualStyleBackColor = false;
-            minimizeButton.Click += minimizeButton_Click;
             // 
             // MainMenu
             // 
