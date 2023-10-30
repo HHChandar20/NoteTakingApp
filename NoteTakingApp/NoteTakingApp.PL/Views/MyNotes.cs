@@ -42,32 +42,73 @@ namespace NoteTakingApp.PL.Views
 
         private void notesList_DoubleClick(object sender, EventArgs e)
         {
+            if (notesList.SelectedItems.Count != 1) return;
+
             updateButton_Click(sender, e);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (notesList.SelectedItems.Count == 1)
-            {
-                controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
-                notesList.SelectedItems[0].Remove();
-            }
+            if (notesList.SelectedItems.Count != 1) return;
+
+            controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
+            notesList.SelectedItems[0].Remove();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
         {
-            if (notesList.SelectedItems.Count == 1)
+            if (notesList.SelectedItems.Count != 1) return;
+
+            int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+            string title = notesList.SelectedItems[0].SubItems[2].Text;
+            string description = notesList.SelectedItems[0].SubItems[3].Text;
+            string favourite = notesList.SelectedItems[0].SubItems[5].Text;
+
+            UpdateNote updateMenuInstance = new UpdateNote(id, title, description, favourite);
+            mainMenuInstance.OpenForm(updateMenuInstance);
+        }
+
+        private void RemoveFromFavourites()
+        {
+            int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+            string title = notesList.SelectedItems[0].SubItems[2].Text;
+            string description = notesList.SelectedItems[0].SubItems[3].Text;
+            string favourite = "♡";
+            controllerInstance.UpdateNote(id, title, description, favourite);
+
+        }
+        private void AddToFavourites()
+        {
+            int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+            string title = notesList.SelectedItems[0].SubItems[2].Text;
+            string description = notesList.SelectedItems[0].SubItems[3].Text;
+            string favourite = "♥︎";
+            controllerInstance.UpdateNote(id, title, description, favourite);
+        }
+
+        private void favouritesButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count != 1) return;
+
+
+            if (notesList.SelectedItems[0].SubItems[5].Text == "♡")
             {
-                int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
-                string title = notesList.SelectedItems[0].SubItems[2].Text;
-                string description = notesList.SelectedItems[0].SubItems[3].Text;
-                string favourite = notesList.SelectedItems[0].SubItems[5].Text;
-
-                UpdateNote updateMenuInstance = new UpdateNote(id, title, description, favourite);
-                mainMenuInstance.OpenForm(updateMenuInstance);
-
+                AddToFavourites();
+            }
+            else
+            {
+                RemoveFromFavourites();
             }
 
+            notesList.Items.Clear();
+            LoadNotesToListView();
+        }
+
+        private void notesList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count != 1) return;
+
+            favouritesButton.IconChar = notesList.SelectedItems[0].SubItems[5].Text == "♡" ? FontAwesome.Sharp.IconChar.HeartCirclePlus : FontAwesome.Sharp.IconChar.HeartBroken;
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewGroup listViewGroup2 = new ListViewGroup("group", HorizontalAlignment.Left);
+            ListViewGroup listViewGroup1 = new ListViewGroup("group", HorizontalAlignment.Left);
             notesList = new ListView();
             Padding = new ColumnHeader();
             Id = new ColumnHeader();
@@ -36,10 +36,11 @@
             Description = new ColumnHeader();
             LastModified = new ColumnHeader();
             Favourite = new ColumnHeader();
-            panelOptions = new Panel();
+            removeFromFavouritesButton = new FontAwesome.Sharp.IconButton();
             deleteButton = new FontAwesome.Sharp.IconButton();
             updateButton = new FontAwesome.Sharp.IconButton();
-            panelOptions.SuspendLayout();
+            buttonLayout = new TableLayoutPanel();
+            buttonLayout.SuspendLayout();
             SuspendLayout();
             // 
             // notesList
@@ -48,17 +49,18 @@
             notesList.BorderStyle = BorderStyle.None;
             notesList.Columns.AddRange(new ColumnHeader[] { Padding, Id, Title, Description, LastModified, Favourite });
             notesList.Dock = DockStyle.Fill;
+            notesList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             notesList.ForeColor = Color.NavajoWhite;
             notesList.FullRowSelect = true;
-            listViewGroup2.Header = "group";
-            listViewGroup2.Name = "group";
-            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup2 });
+            listViewGroup1.Header = "group";
+            listViewGroup1.Name = "group";
+            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup1 });
             notesList.Location = new Point(0, 0);
             notesList.Margin = new Padding(4, 5, 4, 5);
             notesList.MultiSelect = false;
             notesList.Name = "notesList";
             notesList.ShowGroups = false;
-            notesList.Size = new Size(889, 489);
+            notesList.Size = new Size(889, 589);
             notesList.TabIndex = 3;
             notesList.UseCompatibleStateImageBehavior = false;
             notesList.View = View.Details;
@@ -98,55 +100,78 @@
             Favourite.TextAlign = HorizontalAlignment.Center;
             Favourite.Width = 100;
             // 
-            // panelOptions
+            // removeFromFavouritesButton
             // 
-            panelOptions.Controls.Add(deleteButton);
-            panelOptions.Controls.Add(updateButton);
-            panelOptions.Dock = DockStyle.Bottom;
-            panelOptions.Location = new Point(0, 489);
-            panelOptions.Name = "panelOptions";
-            panelOptions.Size = new Size(889, 100);
-            panelOptions.TabIndex = 4;
+            removeFromFavouritesButton.AutoSize = true;
+            removeFromFavouritesButton.Dock = DockStyle.Fill;
+            removeFromFavouritesButton.IconChar = FontAwesome.Sharp.IconChar.HeartBroken;
+            removeFromFavouritesButton.IconColor = Color.Black;
+            removeFromFavouritesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            removeFromFavouritesButton.Location = new Point(386, 3);
+            removeFromFavouritesButton.Name = "removeFromFavouritesButton";
+            removeFromFavouritesButton.Size = new Size(113, 144);
+            removeFromFavouritesButton.TabIndex = 1;
+            removeFromFavouritesButton.UseVisualStyleBackColor = true;
+            removeFromFavouritesButton.Click += removeFromFavouritesButton_Click;
             // 
             // deleteButton
             // 
-            deleteButton.Dock = DockStyle.Right;
+            deleteButton.Dock = DockStyle.Fill;
             deleteButton.IconChar = FontAwesome.Sharp.IconChar.Trash;
             deleteButton.IconColor = Color.Black;
             deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            deleteButton.IconSize = 32;
-            deleteButton.Location = new Point(769, 0);
+            deleteButton.Location = new Point(3, 3);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(120, 100);
+            deleteButton.Size = new Size(113, 144);
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // updateButton
             // 
-            updateButton.Dock = DockStyle.Left;
+            updateButton.Dock = DockStyle.Fill;
             updateButton.ForeColor = Color.Coral;
             updateButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
             updateButton.IconColor = Color.Black;
             updateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            updateButton.IconSize = 32;
-            updateButton.Location = new Point(0, 0);
+            updateButton.Location = new Point(769, 3);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(120, 100);
+            updateButton.Size = new Size(117, 144);
             updateButton.TabIndex = 0;
-            updateButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += updateButton_Click;
+            // 
+            // buttonLayout
+            // 
+            buttonLayout.ColumnCount = 5;
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7685127F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7635136F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
+            buttonLayout.Controls.Add(updateButton, 4, 0);
+            buttonLayout.Controls.Add(removeFromFavouritesButton, 2, 0);
+            buttonLayout.Controls.Add(deleteButton, 0, 0);
+            buttonLayout.Dock = DockStyle.Bottom;
+            buttonLayout.Location = new Point(0, 439);
+            buttonLayout.Name = "buttonLayout";
+            buttonLayout.RowCount = 1;
+            buttonLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            buttonLayout.Size = new Size(889, 150);
+            buttonLayout.TabIndex = 5;
             // 
             // Favourites
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(889, 589);
+            Controls.Add(buttonLayout);
             Controls.Add(notesList);
-            Controls.Add(panelOptions);
             Name = "Favourites";
             Text = "Favourites";
-            panelOptions.ResumeLayout(false);
+            buttonLayout.ResumeLayout(false);
+            buttonLayout.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -159,8 +184,9 @@
         private ColumnHeader Description;
         private ColumnHeader LastModified;
         private ColumnHeader Favourite;
-        private Panel panelOptions;
         private FontAwesome.Sharp.IconButton deleteButton;
         private FontAwesome.Sharp.IconButton updateButton;
+        private FontAwesome.Sharp.IconButton removeFromFavouritesButton;
+        private TableLayoutPanel buttonLayout;
     }
 }

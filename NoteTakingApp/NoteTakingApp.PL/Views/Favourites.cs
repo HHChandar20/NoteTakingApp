@@ -15,6 +15,7 @@ namespace NoteTakingApp.PL.Views
     public partial class Favourites : Form
     {
         NoteController controllerInstance = NoteController.GetInstance();
+        MainMenu mainMenuInstance = MainMenu.GetInstance();
         public Favourites()
         {
             InitializeComponent();
@@ -37,6 +38,40 @@ namespace NoteTakingApp.PL.Views
 
                 notesList.Items.Add(item);
             }
+        }
+
+        private void removeFromFavouritesButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count != 1) return;
+
+            int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+            string title = notesList.SelectedItems[0].SubItems[2].Text;
+            string description = notesList.SelectedItems[0].SubItems[3].Text;
+            string favourite = "♡";
+
+            controllerInstance.UpdateNote(id, title, description, favourite);
+            notesList.SelectedItems[0].Remove();
+        }
+
+        private void deleteButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count != 1) return;
+
+            controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
+            notesList.SelectedItems[0].Remove();
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count != 1) return;
+
+            int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+            string title = notesList.SelectedItems[0].SubItems[2].Text;
+            string description = notesList.SelectedItems[0].SubItems[3].Text;
+            string favourite = notesList.SelectedItems[0].SubItems[5].Text;
+
+            UpdateNote updateMenuInstance = new UpdateNote(id, title, description, favourite);
+            mainMenuInstance.OpenForm(updateMenuInstance);
         }
     }
 }
