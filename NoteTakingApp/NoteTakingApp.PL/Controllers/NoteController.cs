@@ -9,7 +9,7 @@ namespace NoteTakingApp.PL.Controllers
 {
     public class NoteController
     {
-        private static NoteController instance;
+        private static NoteController instance = null;
         private static NoteService serviceInstance = NoteService.GetInstance();
 
         public static NoteController GetInstance()

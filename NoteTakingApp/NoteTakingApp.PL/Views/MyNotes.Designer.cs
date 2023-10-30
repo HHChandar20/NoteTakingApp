@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewGroup listViewGroup2 = new ListViewGroup("group", HorizontalAlignment.Left);
+            ListViewGroup listViewGroup1 = new ListViewGroup("group", HorizontalAlignment.Left);
             notesList = new ListView();
             Padding = new ColumnHeader();
             Id = new ColumnHeader();
@@ -50,9 +50,9 @@
             notesList.Dock = DockStyle.Fill;
             notesList.ForeColor = Color.NavajoWhite;
             notesList.FullRowSelect = true;
-            listViewGroup2.Header = "group";
-            listViewGroup2.Name = "group";
-            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup2 });
+            listViewGroup1.Header = "group";
+            listViewGroup1.Name = "group";
+            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup1 });
             notesList.Location = new Point(0, 0);
             notesList.Margin = new Padding(4, 5, 4, 5);
             notesList.MultiSelect = false;
@@ -137,6 +137,7 @@
             updateButton.TabIndex = 0;
             updateButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += updateButton_Click;
             // 
             // MyNotes
             // 

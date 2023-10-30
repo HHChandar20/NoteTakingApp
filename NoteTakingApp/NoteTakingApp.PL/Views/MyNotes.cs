@@ -14,6 +14,7 @@ namespace NoteTakingApp.PL.Views
     public partial class MyNotes : Form
     {
         private static NoteController controllerInstance = NoteController.GetInstance();
+        private static MainMenu mainMenuInstance = MainMenu.GetInstance();
 
         public MyNotes()
         {
@@ -27,6 +28,8 @@ namespace NoteTakingApp.PL.Views
 
             foreach (string line in lines)
             {
+                if (line == "") continue;
+
                 string[] values = new string[6];
 
                 Array.Copy(line.Split(","), 0, values, 1, 5);
@@ -39,10 +42,7 @@ namespace NoteTakingApp.PL.Views
 
         private void notesList_DoubleClick(object sender, EventArgs e)
         {
-            if (notesList.SelectedItems.Count > 0)
-            {
-
-            }
+            updateButton_Click(sender, e);
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
@@ -52,6 +52,22 @@ namespace NoteTakingApp.PL.Views
                 controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
                 notesList.SelectedItems[0].Remove();
             }
+        }
+
+        private void updateButton_Click(object sender, EventArgs e)
+        {
+            if (notesList.SelectedItems.Count == 1)
+            {
+                int id = int.Parse(notesList.SelectedItems[0].SubItems[1].Text);
+                string title = notesList.SelectedItems[0].SubItems[2].Text;
+                string description = notesList.SelectedItems[0].SubItems[3].Text;
+                string favourite = notesList.SelectedItems[0].SubItems[5].Text;
+
+                UpdateNote updateMenuInstance = new UpdateNote(id, title, description, favourite);
+                mainMenuInstance.OpenForm(updateMenuInstance);
+
+            }
+
         }
     }
 }

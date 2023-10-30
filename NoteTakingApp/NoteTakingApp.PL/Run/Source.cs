@@ -7,7 +7,9 @@ namespace NoteTakingApp.PL.Run
         static void Main()
         {
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainMenu());
+            
+            MainMenu mainMenuForm = MainMenu.GetInstance();
+            Application.Run(mainMenuForm);
         }
     }
 }

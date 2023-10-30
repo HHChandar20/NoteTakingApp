@@ -51,7 +51,7 @@ namespace NoteTakingApp.BLL.Services
 
             note.Id = id;
             note.Title = title;
-            note.Description = description;
+            note.Description = description.Replace("\n", "[NEWLINE]");
             note.LastModified = DateTime.Now.ToString("d/M/yyyy h:mm tt");
             note.Favourite = favourite;
             return note;

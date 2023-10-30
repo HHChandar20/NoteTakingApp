@@ -1,4 +1,5 @@
 ﻿using FontAwesome.Sharp;
+using NoteTakingApp.PL.Controllers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace NoteTakingApp.PL.Views
     public partial class MainMenu : Form
     {
         //Fields
+        private static MainMenu instance = null;
         private IconButton currentButton;
         private Panel leftBorderButton;
         private Form currentForm;
@@ -31,6 +33,18 @@ namespace NoteTakingApp.PL.Views
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
+            leftBorderButton.Height = 100;
+        }
+
+        // Instance
+        public static MainMenu GetInstance()
+        {
+            if (instance == null)
+            {
+                instance = new MainMenu();
+            }
+
+            return instance;
         }
 
         //Methods
@@ -73,7 +87,7 @@ namespace NoteTakingApp.PL.Views
             }
         }
 
-        private void OpenForm(Form newForm)
+        public void OpenForm(Form newForm)
         {
             if (currentForm != null)
             {
@@ -113,6 +127,11 @@ namespace NoteTakingApp.PL.Views
         }
 
         private void logo_Click(object sender, EventArgs e)
+        {
+            Reset();
+        }
+
+        public void Reset()
         {
             DisableButton();
             leftBorderButton.Visible = false;

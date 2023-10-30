@@ -87,7 +87,7 @@ namespace NoteTakingApp.DAL.Repositories
                 }
             }
 
-            File.WriteAllLines(filePath, lines);
+            WriteText(lines);
         }
 
         //Delete
@@ -97,9 +97,15 @@ namespace NoteTakingApp.DAL.Repositories
 
             lines = lines.Where(line => !line.StartsWith(id + ",")).ToArray();
 
-            File.WriteAllLines(filePath, lines);
+            WriteText(lines);
         }
 
+        private static void WriteText(string[] lines)
+        {
+            string textToWrite = string.Join("\n", lines);
+
+            File.WriteAllText(filePath, textToWrite);
+        }
 
         public string[] ReadCsvFile()
         {
