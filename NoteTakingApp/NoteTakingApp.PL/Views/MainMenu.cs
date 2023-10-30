@@ -124,6 +124,7 @@ namespace NoteTakingApp.PL.Views
         private void deleteNoteButton_Click(object sender, EventArgs e)
         {
             ActivateButton(sender);
+            OpenForm(new DeletedNotes());
         }
 
         private void logo_Click(object sender, EventArgs e)
