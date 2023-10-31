@@ -113,6 +113,7 @@
             updateButton.Size = new Size(110, 144);
             updateButton.TabIndex = 0;
             updateButton.UseVisualStyleBackColor = true;
+            updateButton.Click += updateButton_Click;
             // 
             // favouritesButton
             // 
@@ -140,6 +141,7 @@
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
+            deleteButton.Click += deleteButton_Click;
             // 
             // buttonLayout
             // 

@@ -24,6 +24,7 @@ namespace NoteTakingApp.PL.Views
 
         private void LoadNotesToListView()
         {
+            notesList.Items.Clear();
             string[] lines = controllerInstance.ReadFromCsvFile();
 
             foreach (string line in lines)
@@ -52,7 +53,7 @@ namespace NoteTakingApp.PL.Views
             if (notesList.SelectedItems.Count != 1) return;
 
             controllerInstance.DeleteNote(int.Parse(notesList.SelectedItems[0].SubItems[1].Text));
-            notesList.SelectedItems[0].Remove();
+            LoadNotesToListView();
         }
 
         private void updateButton_Click(object sender, EventArgs e)
@@ -100,7 +101,6 @@ namespace NoteTakingApp.PL.Views
                 RemoveFromFavourites();
             }
 
-            notesList.Items.Clear();
             LoadNotesToListView();
         }
 

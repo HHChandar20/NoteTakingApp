@@ -22,9 +22,9 @@ namespace NoteTakingApp.PL.Views
 
         private void addNoteButton_Click(object sender, EventArgs e)
         {
-            if (titleTextBox.Text != "" && descriptionTextBox.Text != "")
+            if (titleTextBox.Text != "")
             {
-                noteController.CreateNewNote(0, titleTextBox.Text, descriptionTextBox.Text, favouriteCheckbox.Checked ? "♥︎" : "♡");
+                noteController.CreateNewNote(titleTextBox.Text, descriptionTextBox.Text, favouriteCheckbox.Checked ? "♥︎" : "♡");
             }
 
             titleTextBox.Text = "";

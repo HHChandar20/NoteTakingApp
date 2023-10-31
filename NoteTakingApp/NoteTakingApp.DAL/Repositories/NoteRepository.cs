@@ -75,6 +75,19 @@ namespace NoteTakingApp.DAL.Repositories
             File.AppendAllText(filePath, '\n' + $"{newNote.Id},{newNote.Title},{newNote.Description},{newNote.LastModified},{newNote.Favourite}");
         }
 
+
+        // Convert
+        public Note ConvertNote(string title, string description, string favourite)
+        {
+            Note note = new Note();
+            note.Id = File.ReadAllLines(filePath).Length + 1;
+            note.Title = title;
+            note.Description = description.Replace("\n", "[NEWLINE]");
+            note.LastModified = DateTime.Now.ToString("d/M/yyyy h:mm tt");
+            note.Favourite = favourite;
+            return note;
+        }
+
         // Update
         public void UpdateNote(int id, string title, string description, string favourite)
         {
@@ -84,21 +97,36 @@ namespace NoteTakingApp.DAL.Repositories
             {
                 if (lines[i].StartsWith(id + ","))
                 {
-                    lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString() + ',' + favourite;
+                    lines[i] = id.ToString() + ',' + title + ',' + description + ',' + DateTime.Now.ToString("d/M/yyyy h:mm tt") + ',' + favourite;
                 }
             }
 
             WriteText(lines);
         }
 
-        //Delete
+        // Delete
         public void DeleteNote(int id)
         {
             string[] lines = File.ReadAllLines(filePath);
 
             lines = lines.Where(line => !line.StartsWith(id + ",")).ToArray();
 
-            WriteText(lines);
+            WriteText(ReorderNotes(lines, id));
+        }
+
+        // Reorder
+
+        public string[] ReorderNotes(string[] lines, int id)
+        {
+            for (int i = id - 1; i < lines.Length; i++)
+            {
+                string[] lineArray = lines[i].Split(',');
+                int newId = int.Parse(lineArray[0]);
+                newId--;
+                lineArray[0] = newId.ToString();
+                lines[i] = string.Join(",", lineArray);
+            }
+            return lines;
         }
 
         private static void WriteText(string[] lines)
