@@ -45,9 +45,24 @@ namespace NoteTakingApp.PL.Controllers
             serviceInstance.DeleteNote(id);
         }
 
-        public string[] ReadFromCsvFile()
+        public string[] ReadNotes()
         {
-            return serviceInstance.ReadCsvFile();
+            return serviceInstance.ReadNotes();
+        }
+
+        public string[] ReadDeletedNotes()
+        {
+            return serviceInstance.ReadDeletedNotes();
+        }
+
+        public void RestoreNote(int id)
+        {
+            serviceInstance.RestoreNote(id);
+        }
+
+        public void DeleteNotePermanently(int id)
+        {
+            serviceInstance.DeleteNotePermanently(id);
         }
     }
 }

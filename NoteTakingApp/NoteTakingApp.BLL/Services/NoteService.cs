@@ -30,16 +30,6 @@ namespace NoteTakingApp.BLL.Services
 
         }
 
-        public List<Note> GetNotes()
-        {
-            return repositoryInstance.GetNotes();
-        }
-
-        public Note GetNoteById(int id)
-        {
-            return repositoryInstance.GetNoteById(id);
-        }
-
         public void CreateNote(string title, string description, string favourite)
         {
             repositoryInstance.AddNote(repositoryInstance.ConvertNote(title, description, favourite));
@@ -55,9 +45,24 @@ namespace NoteTakingApp.BLL.Services
             repositoryInstance.DeleteNote(id);
         }
 
-        public string[] ReadCsvFile()
+        public string[] ReadNotes()
         {
-            return repositoryInstance.ReadCsvFile();
+            return repositoryInstance.ReadNotes();
+        }
+
+        public string[] ReadDeletedNotes()
+        {
+            return repositoryInstance.ReadDeletedNotes();
+        }
+
+        public void RestoreNote(int id)
+        {
+            repositoryInstance.RestoreNote(id);
+        }
+
+        public void DeleteNotePermanently(int id)
+        {
+            repositoryInstance.DeleteNotePermanently(id);
         }
     }
 }

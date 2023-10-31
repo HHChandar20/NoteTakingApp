@@ -10,12 +10,15 @@ using System.Threading.Tasks;
 
 namespace NoteTakingApp.DAL.Repositories
 {
-    public  class NoteRepository
+    public class NoteRepository
     {
         private static NoteRepository instance = null;
-        private List<Note> notesList = GetNotesFromFile();
 
-        private static string filePath = @"..\..\..\..\NoteTakingApp.DAL\Data\Notes_Data.csv";
+        private static string dataPath = @"..\..\..\..\NoteTakingApp.DAL\Data\Notes_Data.csv";
+        private static string deletedDataPath = @"..\..\..\..\NoteTakingApp.DAL\Data\Deleted_Notes_Data.csv";
+
+        private List<Note> notesList = GetNotesFromFile(dataPath);
+        private List<Note> deletedNotesList = GetNotesFromFile(deletedDataPath);
 
 
         public static NoteRepository GetInstance()
@@ -27,7 +30,7 @@ namespace NoteTakingApp.DAL.Repositories
             return instance;
         }
 
-        private static List<Note> GetNotesFromFile()
+        private static List<Note> GetNotesFromFile(string filePath)
         {
             StreamReader reader = new StreamReader(File.OpenRead(filePath));
             List<Note> notes = new List<Note>();
@@ -55,24 +58,20 @@ namespace NoteTakingApp.DAL.Repositories
             return notes;
         }
 
-        public List<Note> GetNotes()
+        private Note GetNoteById(int id, List<Note> list)
         {
-            return notesList;
+            return list.Find(note => note.Id == id);
         }
-
-        // Get note by ID
-        public Note GetNoteById(int id)
-        {
-            return notesList.Find(note => note.Id == id);
-        }
-
 
         // Create
         public void AddNote(Note newNote)
         {
             notesList.Add(newNote);
 
-            File.AppendAllText(filePath, '\n' + $"{newNote.Id},{newNote.Title},{newNote.Description},{newNote.LastModified},{newNote.Favourite}");
+            string textToAppend = newNote.Id == 1 ? "" : "\n";
+            textToAppend += $"{newNote.Id},{newNote.Title},{newNote.Description},{newNote.LastModified},{newNote.Favourite}";
+
+            File.AppendAllText(dataPath, textToAppend);
         }
 
 
@@ -80,7 +79,7 @@ namespace NoteTakingApp.DAL.Repositories
         public Note ConvertNote(string title, string description, string favourite)
         {
             Note note = new Note();
-            note.Id = File.ReadAllLines(filePath).Length + 1;
+            note.Id = File.ReadAllLines(dataPath).Length + 1;
             note.Title = title;
             note.Description = description.Replace("\n", "[NEWLINE]");
             note.LastModified = DateTime.Now.ToString("d/M/yyyy h:mm tt");
@@ -91,7 +90,7 @@ namespace NoteTakingApp.DAL.Repositories
         // Update
         public void UpdateNote(int id, string title, string description, string favourite)
         {
-            string[] lines = File.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines(dataPath);
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -101,17 +100,18 @@ namespace NoteTakingApp.DAL.Repositories
                 }
             }
 
-            WriteText(lines);
+            WriteText(lines, dataPath);
         }
 
         // Delete
         public void DeleteNote(int id)
         {
-            string[] lines = File.ReadAllLines(filePath);
+            string[] lines = File.ReadAllLines(dataPath);
 
             lines = lines.Where(line => !line.StartsWith(id + ",")).ToArray();
 
-            WriteText(ReorderNotes(lines, id));
+            WriteDeletedNote(GetNoteById(id, notesList));
+            WriteText(ReorderNotes(lines, id), dataPath);
         }
 
         // Reorder
@@ -126,21 +126,61 @@ namespace NoteTakingApp.DAL.Repositories
                 lineArray[0] = newId.ToString();
                 lines[i] = string.Join(",", lineArray);
             }
+
             return lines;
         }
 
-        private static void WriteText(string[] lines)
+        private void WriteText(string[] lines, string filePath)
         {
             string textToWrite = string.Join("\n", lines);
 
             File.WriteAllText(filePath, textToWrite);
+
+            notesList = GetNotesFromFile(dataPath);
+            deletedNotesList = GetNotesFromFile(deletedDataPath);
         }
 
-        public string[] ReadCsvFile()
+        // Move note to deleted notes file
+        private void WriteDeletedNote(Note deletedNote)
         {
-            string[] lines = File.ReadAllLines(filePath);
+            deletedNote.Id = File.ReadAllLines(deletedDataPath).Length + 1;
 
-            return lines;
+            string textToAppend = deletedNote.Id == 1 ? "" : "\n";
+            textToAppend += $"{deletedNote.Id},{deletedNote.Title},{deletedNote.Description},{deletedNote.LastModified},{deletedNote.Favourite}";
+
+            deletedNotesList.Add(deletedNote);
+            File.AppendAllText(deletedDataPath, textToAppend);
+        }
+
+        // Restore note
+        public void RestoreNote(int id)
+        {
+            Note restoredNote = GetNoteById(id, deletedNotesList);
+            restoredNote.Id = File.ReadAllLines(dataPath).Length + 1;
+
+            AddNote(restoredNote);
+            
+            DeleteNotePermanently(id);
+        }
+
+        // Delete permanently
+        public void DeleteNotePermanently(int id)
+        {
+            string[] lines = File.ReadAllLines(deletedDataPath);
+
+            lines = lines.Where(line => !line.StartsWith(id + ",")).ToArray();
+
+            WriteText(ReorderNotes(lines, id), deletedDataPath);
+        }
+
+        public string[] ReadNotes()
+        {
+            return File.ReadAllLines(dataPath);
+        }
+
+        public string[] ReadDeletedNotes()
+        {
+            return File.ReadAllLines(deletedDataPath);
         }
     }
 }

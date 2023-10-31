@@ -107,9 +107,9 @@
             removeFromFavouritesButton.IconChar = FontAwesome.Sharp.IconChar.HeartBroken;
             removeFromFavouritesButton.IconColor = Color.Black;
             removeFromFavouritesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            removeFromFavouritesButton.Location = new Point(386, 3);
+            removeFromFavouritesButton.Location = new Point(299, 3);
             removeFromFavouritesButton.Name = "removeFromFavouritesButton";
-            removeFromFavouritesButton.Size = new Size(113, 144);
+            removeFromFavouritesButton.Size = new Size(290, 144);
             removeFromFavouritesButton.TabIndex = 1;
             removeFromFavouritesButton.UseVisualStyleBackColor = true;
             removeFromFavouritesButton.Click += removeFromFavouritesButton_Click;
@@ -122,7 +122,7 @@
             deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             deleteButton.Location = new Point(3, 3);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(113, 144);
+            deleteButton.Size = new Size(290, 144);
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
@@ -135,9 +135,9 @@
             updateButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
             updateButton.IconColor = Color.Black;
             updateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            updateButton.Location = new Point(769, 3);
+            updateButton.Location = new Point(595, 3);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(117, 144);
+            updateButton.Size = new Size(291, 144);
             updateButton.TabIndex = 0;
             updateButton.UseVisualStyleBackColor = true;
             updateButton.Click += updateButton_Click;
@@ -145,11 +145,11 @@
             // buttonLayout
             // 
             buttonLayout.ColumnCount = 5;
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7685127F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7635136F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle());
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle());
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             buttonLayout.Controls.Add(updateButton, 4, 0);
             buttonLayout.Controls.Add(removeFromFavouritesButton, 2, 0);
             buttonLayout.Controls.Add(deleteButton, 0, 0);

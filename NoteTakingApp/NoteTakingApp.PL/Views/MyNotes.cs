@@ -25,7 +25,7 @@ namespace NoteTakingApp.PL.Views
         private void LoadNotesToListView()
         {
             notesList.Items.Clear();
-            string[] lines = controllerInstance.ReadFromCsvFile();
+            string[] lines = controllerInstance.ReadNotes();
 
             foreach (string line in lines)
             {
@@ -86,9 +86,9 @@ namespace NoteTakingApp.PL.Views
             string favourite = "♥︎";
             controllerInstance.UpdateNote(id, title, description, favourite);
         }
-
         private void favouritesButton_Click(object sender, EventArgs e)
         {
+
             if (notesList.SelectedItems.Count != 1) return;
 
 

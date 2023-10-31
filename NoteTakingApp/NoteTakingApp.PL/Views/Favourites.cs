@@ -26,7 +26,7 @@ namespace NoteTakingApp.PL.Views
         {
             notesList.Items.Clear();
 
-            string[] lines = controllerInstance.ReadFromCsvFile();
+            string[] lines = controllerInstance.ReadNotes();
 
             foreach (string line in lines)
             {

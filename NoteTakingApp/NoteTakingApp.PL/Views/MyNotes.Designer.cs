@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ListViewGroup listViewGroup1 = new ListViewGroup("group", HorizontalAlignment.Left);
+            ListViewGroup listViewGroup2 = new ListViewGroup("group", HorizontalAlignment.Left);
             notesList = new ListView();
             Padding = new ColumnHeader();
             Id = new ColumnHeader();
@@ -37,9 +37,9 @@
             LastModified = new ColumnHeader();
             Favourite = new ColumnHeader();
             updateButton = new FontAwesome.Sharp.IconButton();
+            buttonLayout = new TableLayoutPanel();
             favouritesButton = new FontAwesome.Sharp.IconButton();
             deleteButton = new FontAwesome.Sharp.IconButton();
-            buttonLayout = new TableLayoutPanel();
             buttonLayout.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,15 +52,15 @@
             notesList.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             notesList.ForeColor = Color.NavajoWhite;
             notesList.FullRowSelect = true;
-            listViewGroup1.Header = "group";
-            listViewGroup1.Name = "group";
-            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup1 });
+            listViewGroup2.Header = "group";
+            listViewGroup2.Name = "group";
+            notesList.Groups.AddRange(new ListViewGroup[] { listViewGroup2 });
             notesList.Location = new Point(0, 0);
             notesList.Margin = new Padding(4, 5, 4, 5);
             notesList.MultiSelect = false;
             notesList.Name = "notesList";
             notesList.ShowGroups = false;
-            notesList.Size = new Size(844, 450);
+            notesList.Size = new Size(844, 600);
             notesList.TabIndex = 6;
             notesList.UseCompatibleStateImageBehavior = false;
             notesList.View = View.Details;
@@ -108,12 +108,31 @@
             updateButton.IconChar = FontAwesome.Sharp.IconChar.Pen;
             updateButton.IconColor = Color.Black;
             updateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            updateButton.Location = new Point(731, 3);
+            updateButton.Location = new Point(565, 3);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(110, 144);
+            updateButton.Size = new Size(276, 144);
             updateButton.TabIndex = 0;
             updateButton.UseVisualStyleBackColor = true;
             updateButton.Click += updateButton_Click;
+            // 
+            // buttonLayout
+            // 
+            buttonLayout.ColumnCount = 5;
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle());
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            buttonLayout.ColumnStyles.Add(new ColumnStyle());
+            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            buttonLayout.Controls.Add(updateButton, 4, 0);
+            buttonLayout.Controls.Add(favouritesButton, 2, 0);
+            buttonLayout.Controls.Add(deleteButton, 0, 0);
+            buttonLayout.Dock = DockStyle.Bottom;
+            buttonLayout.Location = new Point(0, 450);
+            buttonLayout.Name = "buttonLayout";
+            buttonLayout.RowCount = 1;
+            buttonLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            buttonLayout.Size = new Size(844, 150);
+            buttonLayout.TabIndex = 7;
             // 
             // favouritesButton
             // 
@@ -122,9 +141,9 @@
             favouritesButton.IconChar = FontAwesome.Sharp.IconChar.HeartBroken;
             favouritesButton.IconColor = Color.Black;
             favouritesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            favouritesButton.Location = new Point(367, 3);
+            favouritesButton.Location = new Point(284, 3);
             favouritesButton.Name = "favouritesButton";
-            favouritesButton.Size = new Size(107, 144);
+            favouritesButton.Size = new Size(275, 144);
             favouritesButton.TabIndex = 1;
             favouritesButton.UseVisualStyleBackColor = true;
             favouritesButton.Click += favouritesButton_Click;
@@ -137,38 +156,19 @@
             deleteButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             deleteButton.Location = new Point(3, 3);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(107, 144);
+            deleteButton.Size = new Size(275, 144);
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
             deleteButton.Click += deleteButton_Click;
-            // 
-            // buttonLayout
-            // 
-            buttonLayout.ColumnCount = 5;
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7685127F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 29.7635136F));
-            buttonLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 13.4893255F));
-            buttonLayout.Controls.Add(updateButton, 4, 0);
-            buttonLayout.Controls.Add(favouritesButton, 2, 0);
-            buttonLayout.Controls.Add(deleteButton, 0, 0);
-            buttonLayout.Dock = DockStyle.Bottom;
-            buttonLayout.Location = new Point(0, 450);
-            buttonLayout.Name = "buttonLayout";
-            buttonLayout.RowCount = 1;
-            buttonLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            buttonLayout.Size = new Size(844, 150);
-            buttonLayout.TabIndex = 7;
             // 
             // MyNotes
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(844, 600);
-            Controls.Add(notesList);
             Controls.Add(buttonLayout);
+            Controls.Add(notesList);
             Name = "MyNotes";
             Text = "Form1";
             buttonLayout.ResumeLayout(false);
@@ -186,8 +186,8 @@
         private ColumnHeader LastModified;
         private ColumnHeader Favourite;
         private FontAwesome.Sharp.IconButton updateButton;
+        private TableLayoutPanel buttonLayout;
         private FontAwesome.Sharp.IconButton favouritesButton;
         private FontAwesome.Sharp.IconButton deleteButton;
-        private TableLayoutPanel buttonLayout;
     }
 }
