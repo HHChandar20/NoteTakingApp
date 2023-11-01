@@ -33,7 +33,6 @@ namespace NoteTakingApp.PL.Views
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
-            leftBorderButton.Height = 100;
         }
 
         // Instance

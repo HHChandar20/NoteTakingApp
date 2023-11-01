@@ -63,7 +63,7 @@
             panelMenu.Dock = DockStyle.Left;
             panelMenu.Location = new Point(0, 0);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(220, 482);
+            panelMenu.Size = new Size(220, 911);
             panelMenu.TabIndex = 1;
             // 
             // deleteNoteButton
@@ -186,53 +186,62 @@
             panelTitleBar.Dock = DockStyle.Top;
             panelTitleBar.Location = new Point(220, 0);
             panelTitleBar.Name = "panelTitleBar";
-            panelTitleBar.Size = new Size(661, 70);
+            panelTitleBar.Size = new Size(764, 70);
             panelTitleBar.TabIndex = 2;
             panelTitleBar.MouseDown += panelTitleBar_MouseDown;
             // 
             // minimizeButton
             // 
             minimizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            minimizeButton.BackColor = Color.White;
+            minimizeButton.BackColor = SystemColors.ButtonFace;
             minimizeButton.FlatStyle = FlatStyle.Popup;
             minimizeButton.IconChar = FontAwesome.Sharp.IconChar.Minus;
             minimizeButton.IconColor = Color.Black;
             minimizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             minimizeButton.IconSize = 20;
-            minimizeButton.Location = new Point(534, 21);
+            minimizeButton.ImageAlign = ContentAlignment.TopCenter;
+            minimizeButton.Location = new Point(637, 9);
             minimizeButton.Name = "minimizeButton";
-            minimizeButton.Size = new Size(34, 32);
+            minimizeButton.Padding = new Padding(3, 0, 0, 0);
+            minimizeButton.Size = new Size(34, 24);
             minimizeButton.TabIndex = 4;
+            minimizeButton.TabStop = false;
+            minimizeButton.TextAlign = ContentAlignment.TopLeft;
+            minimizeButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             minimizeButton.UseVisualStyleBackColor = false;
             minimizeButton.Click += minimizeButton_Click;
             // 
             // resizeButton
             // 
             resizeButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            resizeButton.BackColor = SystemColors.ButtonFace;
+            resizeButton.FlatStyle = FlatStyle.Popup;
             resizeButton.IconChar = FontAwesome.Sharp.IconChar.Square;
             resizeButton.IconColor = Color.Black;
             resizeButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             resizeButton.IconSize = 20;
-            resizeButton.Location = new Point(574, 21);
+            resizeButton.Location = new Point(677, 9);
             resizeButton.Name = "resizeButton";
-            resizeButton.Size = new Size(34, 32);
+            resizeButton.Size = new Size(34, 24);
             resizeButton.TabIndex = 3;
-            resizeButton.UseVisualStyleBackColor = true;
+            resizeButton.TabStop = false;
+            resizeButton.UseVisualStyleBackColor = false;
             resizeButton.Click += resizeButton_Click;
             // 
             // exitButton
             // 
             exitButton.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            exitButton.BackColor = Color.Firebrick;
+            exitButton.BackColor = Color.Tomato;
             exitButton.FlatStyle = FlatStyle.Popup;
-            exitButton.IconChar = FontAwesome.Sharp.IconChar.X;
+            exitButton.IconChar = FontAwesome.Sharp.IconChar.Xmark;
             exitButton.IconColor = Color.Black;
             exitButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            exitButton.IconSize = 20;
-            exitButton.Location = new Point(614, 21);
+            exitButton.IconSize = 24;
+            exitButton.Location = new Point(717, 9);
             exitButton.Name = "exitButton";
-            exitButton.Size = new Size(35, 32);
+            exitButton.Size = new Size(35, 24);
             exitButton.TabIndex = 2;
+            exitButton.TabStop = false;
             exitButton.UseVisualStyleBackColor = false;
             exitButton.Click += exitButton_Click;
             // 
@@ -265,7 +274,7 @@
             panelNavbarShadow.Dock = DockStyle.Top;
             panelNavbarShadow.Location = new Point(220, 70);
             panelNavbarShadow.Name = "panelNavbarShadow";
-            panelNavbarShadow.Size = new Size(661, 6);
+            panelNavbarShadow.Size = new Size(764, 6);
             panelNavbarShadow.TabIndex = 3;
             // 
             // panelCurrentMenu
@@ -274,7 +283,7 @@
             panelCurrentMenu.Dock = DockStyle.Fill;
             panelCurrentMenu.Location = new Point(220, 76);
             panelCurrentMenu.Name = "panelCurrentMenu";
-            panelCurrentMenu.Size = new Size(661, 406);
+            panelCurrentMenu.Size = new Size(764, 835);
             panelCurrentMenu.TabIndex = 4;
             // 
             // panelMenuShadow
@@ -283,19 +292,20 @@
             panelMenuShadow.Dock = DockStyle.Left;
             panelMenuShadow.Location = new Point(220, 76);
             panelMenuShadow.Name = "panelMenuShadow";
-            panelMenuShadow.Size = new Size(6, 406);
+            panelMenuShadow.Size = new Size(6, 835);
             panelMenuShadow.TabIndex = 5;
             // 
             // MainMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(881, 482);
+            ClientSize = new Size(984, 911);
             Controls.Add(panelMenuShadow);
             Controls.Add(panelCurrentMenu);
             Controls.Add(panelNavbarShadow);
             Controls.Add(panelTitleBar);
             Controls.Add(panelMenu);
+            MinimumSize = new Size(800, 950);
             Name = "MainMenu";
             Text = "Note Taking App";
             panelMenu.ResumeLayout(false);

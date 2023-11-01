@@ -50,7 +50,7 @@ namespace NoteTakingApp.PL.Views
             controllerInstance.UpdateNote(Id, title, description, favourite);
 
             this.Close();
-            
+
             MyNotes myNotesInstance = new MyNotes();
             mainMenuInstance.OpenForm(myNotesInstance);
         }
