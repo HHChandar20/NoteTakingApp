@@ -59,7 +59,7 @@
             notesList.MultiSelect = false;
             notesList.Name = "notesList";
             notesList.ShowGroups = false;
-            notesList.Size = new Size(591, 360);
+            notesList.Size = new Size(912, 530);
             notesList.TabIndex = 6;
             notesList.UseCompatibleStateImageBehavior = false;
             notesList.View = View.Details;
@@ -108,10 +108,10 @@
             updateButton.IconColor = Color.Black;
             updateButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             updateButton.IconSize = 36;
-            updateButton.Location = new Point(396, 2);
+            updateButton.Location = new Point(608, 2);
             updateButton.Margin = new Padding(2);
             updateButton.Name = "updateButton";
-            updateButton.Size = new Size(193, 86);
+            updateButton.Size = new Size(302, 86);
             updateButton.TabIndex = 0;
             updateButton.UseVisualStyleBackColor = true;
             updateButton.Click += updateButton_Click;
@@ -128,12 +128,12 @@
             buttonLayout.Controls.Add(favouritesButton, 2, 0);
             buttonLayout.Controls.Add(deleteButton, 0, 0);
             buttonLayout.Dock = DockStyle.Bottom;
-            buttonLayout.Location = new Point(0, 270);
+            buttonLayout.Location = new Point(0, 440);
             buttonLayout.Margin = new Padding(2);
             buttonLayout.Name = "buttonLayout";
             buttonLayout.RowCount = 1;
             buttonLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            buttonLayout.Size = new Size(591, 90);
+            buttonLayout.Size = new Size(912, 90);
             buttonLayout.TabIndex = 7;
             // 
             // favouritesButton
@@ -144,10 +144,10 @@
             favouritesButton.IconColor = Color.Black;
             favouritesButton.IconFont = FontAwesome.Sharp.IconFont.Auto;
             favouritesButton.IconSize = 40;
-            favouritesButton.Location = new Point(199, 2);
+            favouritesButton.Location = new Point(305, 2);
             favouritesButton.Margin = new Padding(2);
             favouritesButton.Name = "favouritesButton";
-            favouritesButton.Size = new Size(193, 86);
+            favouritesButton.Size = new Size(299, 86);
             favouritesButton.TabIndex = 1;
             favouritesButton.UseVisualStyleBackColor = true;
             favouritesButton.Click += favouritesButton_Click;
@@ -162,7 +162,7 @@
             deleteButton.Location = new Point(2, 2);
             deleteButton.Margin = new Padding(2);
             deleteButton.Name = "deleteButton";
-            deleteButton.Size = new Size(193, 86);
+            deleteButton.Size = new Size(299, 86);
             deleteButton.TabIndex = 2;
             deleteButton.TextImageRelation = TextImageRelation.TextBeforeImage;
             deleteButton.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(591, 360);
+            ClientSize = new Size(912, 530);
             Controls.Add(buttonLayout);
             Controls.Add(notesList);
             Margin = new Padding(2);

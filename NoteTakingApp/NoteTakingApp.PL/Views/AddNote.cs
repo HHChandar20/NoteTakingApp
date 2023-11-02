@@ -27,6 +27,15 @@ namespace NoteTakingApp.PL.Views
             {
                 noteController.CreateNewNote(titleTextBox.Text, descriptionTextBox.Text, favouriteCheckbox.Checked ? "♥︎" : "♡");
             }
+            else
+            {
+                string caption = "Error Detected in Input";
+                string message = "You must add title!";
+                MessageBoxButtons buttons = MessageBoxButtons.OK;
+                DialogResult result;
+
+                result = MessageBox.Show(message, caption, buttons);
+            }
 
             titleTextBox.Text = "";
             descriptionTextBox.Text = "";

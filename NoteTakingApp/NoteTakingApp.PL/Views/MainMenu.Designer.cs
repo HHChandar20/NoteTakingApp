@@ -279,7 +279,7 @@
             // 
             // panelCurrentMenu
             // 
-            panelCurrentMenu.BackColor = Color.FromArgb(190, 190, 190);
+            panelCurrentMenu.BackColor = Color.FromArgb(90, 90, 90);
             panelCurrentMenu.Dock = DockStyle.Fill;
             panelCurrentMenu.Location = new Point(220, 76);
             panelCurrentMenu.Name = "panelCurrentMenu";

@@ -43,16 +43,28 @@ namespace NoteTakingApp.PL.Views
 
         private void updateNoteButton_Click(object sender, EventArgs e)
         {
-            string title = titleTextBox.Text;
-            string description = descriptionTextBox.Text;
-            string favourite = favouriteCheckbox.Checked ? "♥︎" : "♡";
+            if (titleTextBox.Text != "")
+            {   
+                string title = titleTextBox.Text;
+                string description = descriptionTextBox.Text;
+                string favourite = favouriteCheckbox.Checked ? "♥︎" : "♡";
 
-            controllerInstance.UpdateNote(Id, title, description, favourite);
+                controllerInstance.UpdateNote(Id, title, description, favourite);
 
-            this.Close();
+                this.Close();
 
-            MyNotes myNotesInstance = new MyNotes();
-            mainMenuInstance.OpenForm(myNotesInstance);
+                MyNotes myNotesInstance = new MyNotes();
+                mainMenuInstance.OpenForm(myNotesInstance);
+
+                return;
+            }
+
+            string caption = "Error Detected in Input";
+            string message = "You must add title!";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
+
+            MessageBox.Show(message, caption, buttons);
+
         }
     }
 }

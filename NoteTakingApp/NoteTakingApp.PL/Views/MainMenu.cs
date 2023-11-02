@@ -33,6 +33,7 @@ namespace NoteTakingApp.PL.Views
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             this.WindowState = FormWindowState.Maximized;
+            Reset();
         }
 
         // Instance
@@ -138,6 +139,7 @@ namespace NoteTakingApp.PL.Views
             leftBorderButton.Visible = false;
             navbarIcon.IconChar = IconChar.HomeLg;
             navbarLabel.Text = "Home";
+            OpenForm(new Home());
         }
 
 
