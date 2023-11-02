@@ -26,7 +26,7 @@ namespace NoteTakingApp.PL.Views
             InitializeComponent();
             Id = id;
             titleTextBox.Text = title;
-            descriptionTextBox.Text = description;
+            descriptionTextBox.Text = description.Replace("[COMMA]", ",");
             favouriteCheckbox.Checked = favourite == "♥︎";
         }
 
@@ -44,7 +44,7 @@ namespace NoteTakingApp.PL.Views
         private void updateNoteButton_Click(object sender, EventArgs e)
         {
             string title = titleTextBox.Text;
-            string description = descriptionTextBox.Text.Replace("\n", "[NEWLINE]");
+            string description = descriptionTextBox.Text;
             string favourite = favouriteCheckbox.Checked ? "♥︎" : "♡";
 
             controllerInstance.UpdateNote(Id, title, description, favourite);

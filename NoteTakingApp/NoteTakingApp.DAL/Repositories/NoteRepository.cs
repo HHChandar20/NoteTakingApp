@@ -80,8 +80,15 @@ namespace NoteTakingApp.DAL.Repositories
         {
             Note note = new Note();
             note.Id = File.ReadAllLines(dataPath).Length + 1;
+            
+            title = title.Replace(Environment.NewLine, "[NEWLINE]");
+            title = title.Replace(",", "[COMMA]");
+
+            description = description.Replace(Environment.NewLine, "[NEWLINE]");
+            description = description.Replace(",", "[COMMA]");
+
             note.Title = title;
-            note.Description = description.Replace("\n", "[NEWLINE]");
+            note.Description = description;
             note.LastModified = DateTime.Now.ToString("d/M/yyyy h:mm tt");
             note.Favourite = favourite;
             return note;
@@ -91,6 +98,12 @@ namespace NoteTakingApp.DAL.Repositories
         public void UpdateNote(int id, string title, string description, string favourite)
         {
             string[] lines = File.ReadAllLines(dataPath);
+
+            title = title.Replace(Environment.NewLine, "[NEWLINE]");
+            title = title.Replace(",", "[COMMA]");
+            
+            description = description.Replace(Environment.NewLine, "[NEWLINE]");
+            description = description.Replace(",", "[COMMA]");
 
             for (int i = 0; i < lines.Length; i++)
             {
@@ -175,12 +188,26 @@ namespace NoteTakingApp.DAL.Repositories
 
         public string[] ReadNotes()
         {
-            return File.ReadAllLines(dataPath);
+            string[] lines = File.ReadAllLines(dataPath);
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = lines[i].Replace("[NEWLINE]", Environment.NewLine);
+            }
+
+            return lines;
         }
 
         public string[] ReadDeletedNotes()
         {
-            return File.ReadAllLines(deletedDataPath);
+            string[] lines = File.ReadAllLines(deletedDataPath); ;
+
+            for (int i = 0; i < lines.Length; i++)
+            {
+                lines[i] = lines[i].Replace("[NEWLINE]", Environment.NewLine);
+            }
+
+            return lines;
         }
     }
 }

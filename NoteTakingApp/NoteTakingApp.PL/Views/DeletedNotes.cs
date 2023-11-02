@@ -35,6 +35,7 @@ namespace NoteTakingApp.PL.Views
                 Array.Copy(line.Split(","), 0, values, 1, 5);
 
                 ListViewItem item = new ListViewItem(values);
+                item.SubItems[3].Text = item.SubItems[3].Text.Replace("[COMMA]", ",");
 
                 notesList.Items.Add(item);
             }
